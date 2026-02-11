@@ -6,7 +6,7 @@ React Quiz App is a **React**-based quiz application equipped with a **simple au
 
 ## 📌 Application Link
 
-🔗 [Try the Application Here]()  
+🔗 [Try the Application Here](https://reactjs-mini-quiz-app.netlify.app)
 
 ---
 
