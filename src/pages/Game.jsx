@@ -34,20 +34,23 @@ export const Game = () => {
     setAnsweredCount(0);
   };
 
-  useEffect(() => {
-    if (gameState !== "playing") return;
+useEffect(() => {
+  if (gameState !== "playing") return;
 
-    if (timeLeft === 0) {
-      setGameState("end");
-      return;
-    }
+  const timer = setInterval(() => {
+    setTimeLeft((prev) => {
+      if (prev <= 1) {
+        clearInterval(timer);
+        setGameState("end");
+        return 0;
+      }
+      return prev - 1;
+    });
+  }, 1000);
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
+  return () => clearInterval(timer);
+}, [gameState]);
 
-    return () => clearInterval(timer);
-  }, [timeLeft, gameState]);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 

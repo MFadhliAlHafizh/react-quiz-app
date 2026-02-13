@@ -1,9 +1,12 @@
 import { BiLogOut } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
-    window.location.href = "/signin";
+    navigate("/signin");
   };
 
   const curentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
